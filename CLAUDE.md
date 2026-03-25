@@ -14,40 +14,43 @@ bunx vitest run src/path/to/test.test.ts  # Run a single test
 
 ## Architecture
 
-This is a **TanStack Start** (React SSR framework) app — a pastry conference website ("Haute Pâtisserie 2026") with an AI chat assistant.
+Professional portfolio landing page for Alexsander de Oliveira Gusmão — Software Architect & Tech Lead. Single-page bilingual (PT-BR/EN) with smooth scroll.
 
-**Stack:** React 19, TanStack Router (file-based routing), TanStack AI, Tailwind CSS v4, content-collections, Vite 7, Zod 4.
+**Stack:** React 19, TanStack Start (SSR), TanStack Router (file-based), Tailwind CSS v4, Vite 7, Zod, Lucide React, Google Sheets API (googleapis).
 
 ### Routing
 
-File-based routing in `src/routes/`. The route tree is auto-generated in `src/routeTree.gen.ts` — don't edit it manually. Key routes:
-- `/` — Home with featured speakers/sessions
-- `/schedule` — Conference schedule
-- `/speakers`, `/speakers/:slug` — Speaker list and detail
-- `/talks`, `/talks/:slug` — Session list and detail
-- `/api/remy-chat` — SSE streaming API route for AI chat (POST handler in `src/routes/api.remy-chat.ts`)
+File-based routing in `src/routes/`. Route tree auto-generated in `src/routeTree.gen.ts` — don't edit manually.
+- `/` — Portfolio landing page (all sections)
+- `/api/contact` — POST handler for contact form → Google Sheets
 
-Root layout is in `src/routes/__root.tsx` (includes Header, Footer, theme init script, devtools).
+Root layout in `src/routes/__root.tsx` (I18nProvider, SEO meta, font loading, i18n flash-prevention script).
 
-### Content Collections
+### i18n
 
-Markdown content in `content/speakers/` and `content/talks/`, defined in `content-collections.ts`. Collections generate typed data (`allSpeakers`, `allTalks`) imported from `content-collections`. Each item gets a `slug` derived from its name/title.
+Bilingual PT-BR (default) / EN with toggle. JSON translations in `src/i18n/pt.json` and `src/i18n/en.json`. React Context provider in `src/i18n/context.tsx` with `useI18n()` hook returning `{ locale, t, toggleLocale }`. Flash prevention via inline script in `<head>` that sets `lang` attribute before paint.
 
-### AI Chat ("Remy")
+### Design System
 
-- **API route** (`src/routes/api.remy-chat.ts`): Multi-provider support (Anthropic → OpenAI → Gemini → Ollama fallback). Uses `@tanstack/ai` with SSE streaming and tool-calling (max 5 iterations).
-- **Tools** (`src/lib/conference-tools.ts`): Server-side tools using `toolDefinition` pattern — each has a schema definition + `.server()` implementation. Tools query content-collections data.
-- **Client hook** (`src/lib/conference-ai-hook.ts`): `useConferenceChat()` wraps `@tanstack/ai-react`'s `useChat` with SSE connection to `/api/remy-chat`.
-- **UI** (`src/components/RemyAssistant.tsx`, `RemyButton.tsx`): Floating chat widget.
+Tailwind CSS v4 with `@theme inline` tokens in `src/styles.css`. Key tokens: `text-primary`, `text-secondary`, `text-muted`, `accent`, `accent-light`, `success`, `success-light`, `bg-primary`, `bg-surface`, `border`, `footer-*`, `project-purple/green/amber`. Fonts: Inter (body/headings via Google Fonts `<link>`), JetBrains Mono (code).
+
+### Sections & Components
+
+All in `src/components/`: Navbar, Hero (with macOS terminal), MetricsStrip, About, Experience (timeline), StackCarousel (infinite scroll), Projects (2x2 cards), Contact (form + channels), Footer. Reusable: SectionLabel.
+
+### Section Animations
+
+Every section uses a **fade-in on scroll** animation via `useFadeIn()` hook (`src/lib/useFadeIn.ts`) + `fade-in-section` CSS class. New sections MUST include this pattern:
+1. Import `useFadeIn` from `#/lib/useFadeIn`
+2. Call `const ref = useFadeIn<HTMLElement>()` in the component
+3. Add `ref={ref}` and `className="fade-in-section ..."` to the section element
+
+Respects `prefers-reduced-motion` (shows content immediately without animation).
 
 ### Path Aliases
 
-Both `#/*` and `@/*` map to `./src/*` (configured in tsconfig.json and package.json imports). The codebase uses `#/` for imports.
+`#/*` maps to `./src/*` (configured in tsconfig.json and package.json imports). The codebase uses `#/` for imports.
 
-### Styling
+### Contact Form
 
-Tailwind CSS v4 with `@tailwindcss/vite` plugin. Custom dark theme with Playfair Display / Cormorant Garamond fonts and copper/gold accents. Theme toggle supports light/dark/auto modes with localStorage persistence and a flash-prevention script in `__root.tsx`.
-
-### AI Provider Configuration
-
-Set one env var to enable the AI assistant: `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, `GEMINI_API_KEY`, or run Ollama locally.
+Client-side Zod validation with localized error messages. POST to `/api/contact` server route. Rate limited (3 req/5min per IP). Google Sheets integration via service account env vars (`GOOGLE_SERVICE_ACCOUNT_EMAIL`, `GOOGLE_PRIVATE_KEY`, `GOOGLE_SPREADSHEET_ID`). Graceful fallback to console.log when env vars are not set.

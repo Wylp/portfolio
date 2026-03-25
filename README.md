@@ -1,305 +1,174 @@
-Welcome to your new TanStack Start app! 
+<div align="center">
 
-# Getting Started
+# alexsander.dev
 
-To run this application:
+**Professional portfolio — Software Architect & Tech Lead**
+
+Built with React 19, TanStack Start, Tailwind CSS v4, and server-side rendering.
+
+[![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)](https://react.dev)
+[![TanStack Start](https://img.shields.io/badge/TanStack_Start-SSR-FF4154?logo=reactquery&logoColor=white)](https://tanstack.com/start)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178C6?logo=typescript&logoColor=white)](https://typescriptlang.org)
+[![Bun](https://img.shields.io/badge/Bun-runtime-f9f1e1?logo=bun&logoColor=14151a)](https://bun.sh)
+
+</div>
+
+---
+
+## Overview
+
+Single-page bilingual portfolio (PT-BR / EN) showcasing 5 years of experience building and scaling SaaS platforms. Features smooth scroll navigation, scroll-triggered animations, and a working contact form backed by Google Sheets.
+
+### Sections
+
+| Section | Description |
+|---------|-------------|
+| **Hero** | Headline with interactive macOS terminal animation (`kubectl get pods`) |
+| **Metrics Strip** | Key numbers — 99.99% uptime, -60% infra cost, 3x API performance |
+| **About** | Bio, education, awards (CREA-SP 2024), and certifications |
+| **Experience** | Interactive timeline — from Full Stack Developer to Software Architect |
+| **Stack** | Infinite-scroll carousel of technologies |
+| **Projects** | Categorized cards — SaaS, Mobile, Infrastructure, Analytics, Data Pipeline, Big Data |
+| **Contact** | Form with Zod validation + direct channel links |
+
+---
+
+## Tech Stack
+
+| Layer | Technologies |
+|-------|-------------|
+| **Framework** | React 19, TanStack Start (SSR), TanStack Router (file-based) |
+| **Styling** | Tailwind CSS v4 with custom design tokens |
+| **Language** | TypeScript 5.7 |
+| **Validation** | Zod |
+| **Icons** | Lucide React, React Icons |
+| **Build** | Vite 7, Bun |
+| **Testing** | Vitest, Testing Library |
+| **Backend** | Google Sheets API (contact form) |
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- [Bun](https://bun.sh) >= 1.0
+- Node.js >= 18 (fallback)
+
+### Install & Run
 
 ```bash
+# Clone the repository
+git clone https://github.com/Wylp/portfolio.git
+cd portfolio
+
+# Install dependencies
 bun install
+
+# Start dev server (port 3000)
 bun --bun run dev
 ```
 
-# Building For Production
-
-To build this application for production:
+### Build for Production
 
 ```bash
 bun --bun run build
 ```
 
-## Testing
-
-This project uses [Vitest](https://vitest.dev/) for testing. You can run the tests with:
+### Run Tests
 
 ```bash
 bun --bun run test
 ```
 
-## Styling
-
-This project uses [Tailwind CSS](https://tailwindcss.com/) for styling.
-
-### Removing Tailwind CSS
-
-If you prefer not to use Tailwind CSS:
-
-1. Remove the demo pages in `src/routes/demo/`
-2. Replace the Tailwind import in `src/styles.css` with your own styles
-3. Remove `tailwindcss()` from the plugins array in `vite.config.ts`
-4. Uninstall the packages: `bun install @tailwindcss/vite tailwindcss -D`
-
-
-# Events Example - Haute Pâtisserie 2026
-
-A beautiful pastry conference website built with TanStack Start and Netlify, featuring:
-
-- **Speakers & Sessions**: Managed with content-collections for easy markdown-based content
-- **Conference Schedule**: Day-by-day timeline of all sessions
-- **AI Assistant (Remy)**: An AI-powered chat assistant to help attendees navigate the conference
-- **Elegant Dark Theme**: Custom typography with Playfair Display and copper/gold accents
-
-## Features
-
-### Content Management
-- Speaker profiles with bios, awards, and specialty information
-- Session details with topics, duration, and speaker attribution
-- All content in markdown files using content-collections
-
-### AI-Powered Assistance
-- Chat with "Remy" the culinary assistant
-- Search for speakers and sessions by topic
-- Get recommendations based on interests
-- Supports multiple AI providers (Anthropic, OpenAI, Gemini, Ollama)
-
-### Routes
-- `/` - Home page with featured speakers and sessions
-- `/schedule` - Conference schedule with day-by-day timeline
-- `/speakers` - All speakers grid
-- `/speakers/:slug` - Individual speaker detail page
-- `/talks` - All sessions grid
-- `/talks/:slug` - Individual session detail page
-
-## Getting Started
-
-```bash
-# Create a new project with this example
-npx netlify-cta my-conference --example events
-
-# Navigate to the project
-cd my-conference
-
-# Install dependencies
-pnpm install
-
-# Start the development server
-pnpm dev
-```
-
-## AI Configuration
-
-To use the AI assistant, set one of the following environment variables:
-
-```bash
-# Anthropic (Claude)
-ANTHROPIC_API_KEY=your-key-here
-
-# OpenAI
-OPENAI_API_KEY=your-key-here
-
-# Google Gemini
-GEMINI_API_KEY=your-key-here
-
-# Ollama (local, no API key needed)
-# Just ensure Ollama is running locally
-```
-
-The assistant will automatically use the first available provider.
-
-## Customization
-
-### Adding Speakers
-Create a new markdown file in `content/speakers/`:
-
-```markdown
----
-name: "Chef Name"
-title: "Executive Pastry Chef"
-specialty: "French Pastry"
-restaurant: "Restaurant Name"
-location: "City, Country"
-headshot: "speakers/chef-name.jpg"
-awards:
-  - "Award 1"
-  - "Award 2"
 ---
 
-Bio content here...
+## Project Structure
+
+```
+src/
+├── components/          # UI components
+│   ├── Navbar.tsx       # Navigation with i18n toggle
+│   ├── Hero.tsx         # Hero section + terminal animation
+│   ├── MetricsStrip.tsx # Key metrics banner
+│   ├── About.tsx        # Bio, education, awards
+│   ├── Experience.tsx   # Career timeline
+│   ├── StackCarousel.tsx# Infinite-scroll tech stack
+│   ├── Projects.tsx     # Project cards grid
+│   ├── Contact.tsx      # Contact form + channels
+│   ├── Footer.tsx       # Footer
+│   └── SectionLabel.tsx # Reusable section header
+├── i18n/
+│   ├── context.tsx      # I18n React Context + useI18n hook
+│   ├── pt.json          # Portuguese translations
+│   └── en.json          # English translations
+├── lib/
+│   ├── useFadeIn.ts     # Scroll-triggered fade-in hook
+│   └── contact-server.ts# Server-side contact handler
+├── routes/
+│   ├── __root.tsx       # Root layout (SEO, fonts, i18n)
+│   └── index.tsx        # Landing page (all sections)
+└── styles.css           # Tailwind config + design tokens
 ```
 
-### Adding Sessions
-Create a new markdown file in `content/talks/`:
-
-```markdown
 ---
-title: "Session Title"
-speaker: "Chef Name"
-duration: "90 minutes"
-image: "talks/session-image.jpg"
-topics:
-  - "Topic 1"
-  - "Topic 2"
+
+## Internationalization
+
+Bilingual support with zero-flash language switching:
+
+- **Default:** PT-BR
+- **Toggle:** Flag button in the navbar
+- **Persistence:** `localStorage` with inline `<head>` script to prevent FOUC
+- **Hook:** `useI18n()` returns `{ locale, t, toggleLocale }`
+
 ---
 
-Session description here...
+## Contact Form
+
+The contact form uses client-side Zod validation with localized error messages and submits to a server-side API route.
+
+**Features:**
+- Rate limiting (3 requests / 5 min per IP)
+- Google Sheets integration via service account
+- Graceful fallback to `console.log` when env vars are not set
+
+**Environment variables** (optional — form works without them):
+
+```env
+GOOGLE_SERVICE_ACCOUNT_EMAIL=your-service-account@project.iam.gserviceaccount.com
+GOOGLE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n..."
+GOOGLE_SPREADSHEET_ID=your-spreadsheet-id
 ```
 
-## Theme
+---
 
-The example uses a custom dark theme with:
-- **Font**: Playfair Display (display) and Cormorant Garamond (body)
-- **Colors**: Copper and gold accents on a dark charcoal background
-- **Effects**: Elegant card hover animations, grain texture overlay
+## Design Tokens
 
+Custom Tailwind v4 theme defined in `src/styles.css` using `@theme inline`:
 
+| Token | Usage |
+|-------|-------|
+| `text-primary` | Main text color |
+| `text-secondary` | Secondary text |
+| `text-muted` | Subtle / disabled text |
+| `accent` / `accent-light` | Primary accent color |
+| `success` / `success-light` | Success states |
+| `bg-primary` / `bg-surface` | Background layers |
 
-## Routing
+**Fonts:** Inter (body/headings) · JetBrains Mono (code/terminal)
 
-This project uses [TanStack Router](https://tanstack.com/router) with file-based routing. Routes are managed as files in `src/routes`.
+---
 
-### Adding A Route
+## License
 
-To add a new route to your application just add a new file in the `./src/routes` directory.
+This project is personal and not open for redistribution. Feel free to use it as reference or inspiration.
 
-TanStack will automatically generate the content of the route file for you.
+---
 
-Now that you have two routes you can use a `Link` component to navigate between them.
+<div align="center">
 
-### Adding Links
+**[alexsandeveloper@gmail.com](mailto:alexsandeveloper@gmail.com)** · **[LinkedIn](https://linkedin.com/in/alexsander-dev)** · **[GitHub](https://github.com/Wylp)**
 
-To use SPA (Single Page Application) navigation you will need to import the `Link` component from `@tanstack/react-router`.
-
-```tsx
-import { Link } from "@tanstack/react-router";
-```
-
-Then anywhere in your JSX you can use it like so:
-
-```tsx
-<Link to="/about">About</Link>
-```
-
-This will create a link that will navigate to the `/about` route.
-
-More information on the `Link` component can be found in the [Link documentation](https://tanstack.com/router/v1/docs/framework/react/api/router/linkComponent).
-
-### Using A Layout
-
-In the File Based Routing setup the layout is located in `src/routes/__root.tsx`. Anything you add to the root route will appear in all the routes. The route content will appear in the JSX where you render `{children}` in the `shellComponent`.
-
-Here is an example layout that includes a header:
-
-```tsx
-import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
-
-export const Route = createRootRoute({
-  head: () => ({
-    meta: [
-      { charSet: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { title: 'My App' },
-    ],
-  }),
-  shellComponent: ({ children }) => (
-    <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        <header>
-          <nav>
-            <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
-          </nav>
-        </header>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  ),
-})
-```
-
-More information on layouts can be found in the [Layouts documentation](https://tanstack.com/router/latest/docs/framework/react/guide/routing-concepts#layouts).
-
-## Server Functions
-
-TanStack Start provides server functions that allow you to write server-side code that seamlessly integrates with your client components.
-
-```tsx
-import { createServerFn } from '@tanstack/react-start'
-
-const getServerTime = createServerFn({
-  method: 'GET',
-}).handler(async () => {
-  return new Date().toISOString()
-})
-
-// Use in a component
-function MyComponent() {
-  const [time, setTime] = useState('')
-  
-  useEffect(() => {
-    getServerTime().then(setTime)
-  }, [])
-  
-  return <div>Server time: {time}</div>
-}
-```
-
-## API Routes
-
-You can create API routes by using the `server` property in your route definitions:
-
-```tsx
-import { createFileRoute } from '@tanstack/react-router'
-import { json } from '@tanstack/react-start'
-
-export const Route = createFileRoute('/api/hello')({
-  server: {
-    handlers: {
-      GET: () => json({ message: 'Hello, World!' }),
-    },
-  },
-})
-```
-
-## Data Fetching
-
-There are multiple ways to fetch data in your application. You can use TanStack Query to fetch data from a server. But you can also use the `loader` functionality built into TanStack Router to load the data for a route before it's rendered.
-
-For example:
-
-```tsx
-import { createFileRoute } from '@tanstack/react-router'
-
-export const Route = createFileRoute('/people')({
-  loader: async () => {
-    const response = await fetch('https://swapi.dev/api/people')
-    return response.json()
-  },
-  component: PeopleComponent,
-})
-
-function PeopleComponent() {
-  const data = Route.useLoaderData()
-  return (
-    <ul>
-      {data.results.map((person) => (
-        <li key={person.name}>{person.name}</li>
-      ))}
-    </ul>
-  )
-}
-```
-
-Loaders simplify your data fetching logic dramatically. Check out more information in the [Loader documentation](https://tanstack.com/router/latest/docs/framework/react/guide/data-loading#loader-parameters).
-
-# Demo files
-
-Files prefixed with `demo` can be safely deleted. They are there to provide a starting point for you to play around with the features you've installed.
-
-# Learn More
-
-You can learn more about all of the offerings from TanStack in the [TanStack documentation](https://tanstack.com).
-
-For TanStack Start specific documentation, visit [TanStack Start](https://tanstack.com/start).
+</div>

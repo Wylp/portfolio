@@ -1,39 +1,69 @@
 import { SectionLabel } from '#/components/SectionLabel'
 import { useI18n } from '#/i18n/context'
+import { useFadeIn } from '#/lib/useFadeIn'
 
-const CDN = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/'
+const DEVICONS = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/'
+const SIMPLE = 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/'
 
-const row1 = [
-  { name: 'React', icon: 'react/react-original.svg' },
-  { name: 'TypeScript', icon: 'typescript/typescript-original.svg' },
-  { name: 'Angular', icon: 'angular/angular-original.svg' },
-  { name: 'Tailwind CSS', icon: 'tailwindcss/tailwindcss-original.svg' },
-  { name: 'Node.js', icon: 'nodejs/nodejs-original.svg' },
-  { name: 'Express', icon: 'express/express-original.svg' },
-  { name: 'Redux', icon: 'redux/redux-original.svg' },
-  { name: 'Vite', icon: 'vitejs/vitejs-original.svg' },
-  { name: 'React Native', icon: 'react/react-original.svg' },
-  { name: 'Expo', icon: 'nodejs/nodejs-original.svg' },
+type StackItem = { name: string; src: string }
+
+function dev(icon: string) { return `${DEVICONS}${icon}` }
+function si(icon: string) { return `${SIMPLE}${icon}` }
+
+const row1: StackItem[] = [
+  { name: 'React', src: dev('react/react-original.svg') },
+  { name: 'TypeScript', src: dev('typescript/typescript-original.svg') },
+  { name: 'JavaScript', src: dev('javascript/javascript-original.svg') },
+  { name: 'Angular', src: dev('angular/angular-original.svg') },
+  { name: 'Next.js', src: dev('nextjs/nextjs-original.svg') },
+  { name: 'Node.js', src: dev('nodejs/nodejs-original.svg') },
+  { name: 'Express', src: dev('express/express-original.svg') },
+  { name: 'NestJS', src: dev('nestjs/nestjs-original.svg') },
+  { name: 'Python', src: dev('python/python-original.svg') },
+  { name: 'Go', src: dev('go/go-original.svg') },
+  { name: 'C', src: dev('c/c-original.svg') },
+  { name: 'C++', src: dev('cplusplus/cplusplus-original.svg') },
+  { name: 'C#', src: dev('csharp/csharp-original.svg') },
+  { name: 'React Native', src: dev('react/react-original.svg') },
+  { name: 'TensorFlow', src: dev('tensorflow/tensorflow-original.svg') },
+  { name: 'Redux', src: dev('redux/redux-original.svg') },
+  { name: 'GraphQL', src: dev('graphql/graphql-plain.svg') },
+  { name: 'Tailwind CSS', src: dev('tailwindcss/tailwindcss-original.svg') },
+  { name: 'Vite', src: dev('vitejs/vitejs-original.svg') },
+  { name: 'Webpack', src: dev('webpack/webpack-original.svg') },
+  { name: 'Jest', src: dev('jest/jest-plain.svg') },
 ]
 
-const row2 = [
-  { name: 'Google Cloud', icon: 'googlecloud/googlecloud-original.svg' },
-  { name: 'AWS', icon: 'amazonwebservices/amazonwebservices-original-wordmark.svg' },
-  { name: 'Kubernetes', icon: 'kubernetes/kubernetes-original.svg' },
-  { name: 'Docker', icon: 'docker/docker-original.svg' },
-  { name: 'MySQL', icon: 'mysql/mysql-original.svg' },
-  { name: 'PostgreSQL', icon: 'postgresql/postgresql-original.svg' },
-  { name: 'Redis', icon: 'redis/redis-original.svg' },
-  { name: 'BigQuery', icon: 'googlecloud/googlecloud-original.svg' },
-  { name: 'PubSub', icon: 'googlecloud/googlecloud-original.svg' },
-  { name: 'GitHub', icon: 'github/github-original.svg' },
+const row2: StackItem[] = [
+  { name: 'Google Cloud', src: dev('googlecloud/googlecloud-original.svg') },
+  { name: 'BigQuery', src: si('googlebigquery.svg') },
+  { name: 'Cloud PubSub', src: si('googlepubsub.svg') },
+  { name: 'AWS', src: dev('amazonwebservices/amazonwebservices-original-wordmark.svg') },
+  { name: 'AWS Lambda', src: si('awslambda.svg') },
+  { name: 'AWS SQS', src: si('amazonsqs.svg') },
+  { name: 'AWS SES', src: si('amazonsimpleemailservice.svg') },
+  { name: 'Kubernetes', src: dev('kubernetes/kubernetes-original.svg') },
+  { name: 'Docker', src: dev('docker/docker-original.svg') },
+  { name: 'Terraform', src: dev('terraform/terraform-original.svg') },
+  { name: 'GitHub Actions', src: dev('githubactions/githubactions-original.svg') },
+  { name: 'Nginx', src: dev('nginx/nginx-original.svg') },
+  { name: 'Linux', src: dev('linux/linux-original.svg') },
+  { name: 'PostgreSQL', src: dev('postgresql/postgresql-original.svg') },
+  { name: 'MySQL', src: dev('mysql/mysql-original.svg') },
+  { name: 'MongoDB', src: dev('mongodb/mongodb-original.svg') },
+  { name: 'Redis', src: dev('redis/redis-original.svg') },
+  { name: 'Firebase', src: dev('firebase/firebase-original.svg') },
+  { name: 'RabbitMQ', src: dev('rabbitmq/rabbitmq-original.svg') },
+  { name: 'Grafana', src: dev('grafana/grafana-original.svg') },
+  { name: 'Prometheus', src: dev('prometheus/prometheus-original.svg') },
+  { name: 'Git', src: dev('git/git-original.svg') },
 ]
 
 function CarouselRow({
   items,
   direction,
 }: {
-  items: typeof row1
+  items: StackItem[]
   direction: 'left' | 'right'
 }) {
   const speed = direction === 'left' ? '35s' : '30s'
@@ -51,7 +81,7 @@ function CarouselRow({
             className="group/item flex items-center gap-2.5 shrink-0 cursor-default transition-transform duration-300 hover:scale-[1.08]"
           >
             <img
-              src={`${CDN}${item.icon}`}
+              src={item.src}
               alt={item.name}
               width={32}
               height={32}
@@ -70,7 +100,7 @@ function CarouselRow({
             className="group/item flex items-center gap-2.5 shrink-0 cursor-default transition-transform duration-300 hover:scale-[1.08]"
           >
             <img
-              src={`${CDN}${item.icon}`}
+              src={item.src}
               alt=""
               width={32}
               height={32}
@@ -89,16 +119,17 @@ function CarouselRow({
 
 export function StackCarousel() {
   const { t } = useI18n()
+  const ref = useFadeIn<HTMLElement>()
 
   return (
-    <section id="stack" aria-labelledby="stack-heading" className="bg-bg-primary py-20">
+    <section ref={ref} id="stack" aria-labelledby="stack-heading" className="fade-in-section bg-bg-primary py-20">
       <div className="max-w-[900px] mx-auto px-6">
         <SectionLabel>{t.stack.label}</SectionLabel>
         <h2 id="stack-heading" className="text-[28px] font-bold tracking-[-0.5px] text-text-primary mb-10">
           {t.stack.headline}
         </h2>
       </div>
-      <div className="max-w-[1200px] mx-auto">
+      <div>
         <CarouselRow items={row1} direction="left" />
         <CarouselRow items={row2} direction="right" />
       </div>

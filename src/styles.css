@@ -58,6 +58,16 @@ code {
   }
 }
 
+/* Timeline pulse — sonar ring expanding from the current role indicator */
+@keyframes sonar {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline-pulse::after { animation: none !important; display: none; }
+}
+
 /* Carousel animations */
 @keyframes scroll-left {
   0% { transform: translateX(0); }
@@ -71,6 +81,13 @@ code {
 
 @media (prefers-reduced-motion: reduce) {
   .carousel-track { animation: none !important; }
+}
+
+/* Section fade-in on scroll — driven by JS scroll progress via useFadeIn hook */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(30px);
+  will-change: opacity, transform;
 }
 
 /* Carousel fade edges */

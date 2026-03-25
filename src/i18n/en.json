@@ -14,20 +14,50 @@
     "cta_secondary": "View projects"
   },
   "metrics": {
-    "uptime": { "value": "99.99%", "label": "Production uptime", "badge": "Top 0.1% — SaaS avg: 99.5%" },
-    "cost": { "value": "-60%", "label": "Infrastructure cost", "badge": "3x results with less budget" },
-    "performance": { "value": "3x", "label": "API performance", "badges": ["Parallelization and event-driven", "70% response time reduction"] },
-    "deploys": { "value": "~10/wk", "label": "Production deploys", "badge": "Continuous CI/CD while leading" }
+    "uptime": { "value": "99.99%", "label": "Production uptime", "badges": ["Top 0.1% — SaaS avg: 99.5%", "24/7 monitoring with alerts", "Multi-layer disaster recovery", "Zero downtime deployments"] },
+    "cost": { "value": "-60%", "label": "Infrastructure cost", "badges": ["3x results with less budget", "On-demand auto-scaling", "Continuous resource optimization", "Strategic service migration"] },
+    "performance": { "value": "3x", "label": "API performance", "badges": ["Parallelization and event-driven", "70% response time reduction", "Distributed caching with Redis", "Optimized queries at scale"] },
+    "deploys": { "value": "~10/wk", "label": "Production deploys", "badges": ["Continuous CI/CD while leading", "Automated pipelines", "Feature flags and rollback", "E2E tests in pipeline"] }
   },
   "about": {
     "label": "ABOUT",
     "headline": "An engineer who leads by delivery, not by title.",
     "text_col1": "Computer Engineer with 5 years of experience building and scaling SaaS platforms. I work as a software architect and tech lead, but I make a point of being the highest-delivering developer on my team.\n\nMy focus is measurable results: systems that scale, costs that decrease, teams that deliver with cadence. Always seeking new knowledge and exchanging experiences.",
     "text_col2": "Responsible for the architecture of 60+ microservices, cloud infrastructure (GCP/AWS), and the entire delivery cycle — from system design to production deployment.\n\nI build platforms that serve thousands of daily users with high availability, while reducing costs and accelerating team velocity.",
-    "facts": {
-      "education": { "label": "Education", "value": "B.Sc. Computer Engineering, Univ. Santa Cecília" },
-      "location": { "label": "Based in", "value": "São Paulo, Brazil" },
-      "languages": { "label": "Languages", "value": "Portuguese · English" }
+    "education": [
+      {
+        "degree": "Postgraduate in Applied Artificial Intelligence Engineering",
+        "institution": "Taught by 4 Google Developers Experts (GDE)",
+        "status": "In progress",
+        "current": true,
+        "badges": ["Tensor Calculus", "Deep Neural Networks", "NLP & LLMs", "Computer Vision", "MLOps & Model Deployment", "Data Engineering for Artificial Intelligence"]
+      },
+      {
+        "type": "award",
+        "degree": "CREA-SP Award — Class of 2024: The Future of Engineering",
+        "institution": "Regional Council of Engineering and Agronomy of São Paulo",
+        "status": "2024",
+        "current": false,
+        "badges": ["Top students in São Paulo state", "Academic distinction in Computer Engineering", "Class of 2024"]
+      },
+      {
+        "degree": "B.Sc. in Computer Engineering",
+        "institution": "Universidade Santa Cecília",
+        "status": "2019 — 2024",
+        "current": false,
+        "badges": ["Data Structures", "Operating Systems", "Computer Networks", "Software Engineering", "Databases", "Computer Architecture"]
+      },
+      {
+        "degree": "Independent Studies",
+        "institution": "Courses, certifications & continuous learning",
+        "status": "Ongoing",
+        "current": false,
+        "badges": ["Kubernetes", "Docker", "Terraform", "Google Cloud Platform (GCP)", "Amazon Web Services (AWS)", "Node.js", "React", "React Native", "TypeScript", "PostgreSQL", "Redis", "PubSub & Event-Driven", "CI/CD Pipelines", "Observability & Monitoring"]
+      }
+    ],
+    "details": {
+      "location": "São Paulo, Brazil",
+      "languages": "Portuguese · English"
     }
   },
   "experience": {
@@ -63,7 +93,7 @@
         "title": "Computer Engineering",
         "context": "Santa Cecília University · Bachelor's degree",
         "current": false,
-        "badges": [],
+        "badges": ["C / C++", "Assembly", "VHDL", "Embedded Systems", "Microcontrollers", "Digital Circuits"],
         "highlights": []
       }
     ]
@@ -107,6 +137,22 @@
         "techs": ["Angular", "SSR", "Express"],
         "metrics": ["Real-time metrics", "Team visibility"],
         "color": "amber"
+      },
+      {
+        "category": "Data Pipeline",
+        "title": "Telemetry ingestion engine",
+        "description": "Massive processing pipeline receiving 100M+ tracking points daily. Event-driven architecture with distributed PubSub and SQS queues, parallel batch processing with p99 latency under 20ms and zero data loss.",
+        "techs": ["PubSub", "SQS", "Node.js", "Kubernetes"],
+        "metrics": ["100M+ pts/day", "p99 < 20ms"],
+        "color": "green"
+      },
+      {
+        "category": "Big Data",
+        "title": "Telemetry data lake at scale",
+        "description": "Storage and query layer over 12+ TB and 247+ billion telemetry points. Analytical queries across billions of records return full reports in under 5 seconds with smart partitioning and composite indexes.",
+        "techs": ["Cloud SQL", "BigQuery", "Redis", "Partitioning"],
+        "metrics": ["247B+ points", "Query < 5s"],
+        "color": "blue"
       }
     ]
   },
@@ -132,11 +178,9 @@
     },
     "channels_title": "Direct channels",
     "channels": [
-      { "name": "Email", "handle": "PLACEHOLDER@email.com", "href": "mailto:PLACEHOLDER@email.com", "icon": "mail", "color": "blue" },
+      { "name": "Email", "handle": "alexsandeveloper@gmail.com", "href": "mailto:alexsandeveloper@gmail.com", "icon": "mail", "color": "blue" },
       { "name": "LinkedIn", "handle": "/in/alexsander-dev", "href": "https://linkedin.com/in/alexsander-dev", "icon": "linkedin", "color": "blue" },
-      { "name": "GitHub", "handle": "PLACEHOLDER", "href": "https://github.com/PLACEHOLDER", "icon": "github", "color": "blue" },
-      { "name": "WhatsApp", "handle": "Direct message", "href": "https://wa.me/PLACEHOLDER", "icon": "phone", "color": "green" },
-      { "name": "Telegram", "handle": "@PLACEHOLDER", "href": "https://t.me/PLACEHOLDER", "icon": "send", "color": "blue" }
+      { "name": "GitHub", "handle": "Wylp", "href": "https://github.com/Wylp", "icon": "github", "color": "blue" }
     ]
   },
   "footer": {

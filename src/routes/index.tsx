@@ -6,7 +6,6 @@ import { About } from '#/components/About'
 import { Experience } from '#/components/Experience'
 import { StackCarousel } from '#/components/StackCarousel'
 import { Projects } from '#/components/Projects'
-import { Contact } from '#/components/Contact'
 import { Footer } from '#/components/Footer'
 
 export const Route = createFileRoute('/')({
@@ -24,7 +23,6 @@ function HomePage() {
         <Experience />
         <StackCarousel />
         <Projects />
-        <Contact />
       </main>
       <Footer />
     </>

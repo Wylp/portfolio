@@ -14,20 +14,50 @@
     "cta_secondary": "Ver projetos"
   },
   "metrics": {
-    "uptime": { "value": "99.99%", "label": "Uptime em produção", "badge": "Top 0.1% — média SaaS: 99.5%" },
-    "cost": { "value": "-60%", "label": "Custo de infraestrutura", "badge": "3x resultado com menos budget" },
-    "performance": { "value": "3x", "label": "Performance de APIs", "badges": ["Paralelização e event-driven", "Redução de 70% no tempo de resposta"] },
-    "deploys": { "value": "~10/sem", "label": "Deploys em produção", "badge": "CI/CD contínuo mesmo liderando" }
+    "uptime": { "value": "99.99%", "label": "Uptime em produção", "badges": ["Top 0.1% — média SaaS: 99.5%", "Monitoramento 24/7 com alertas", "Disaster recovery multi-camada", "Zero downtime deployments"] },
+    "cost": { "value": "-60%", "label": "Custo de infraestrutura", "badges": ["3x resultado com menos budget", "Auto-scaling sob demanda", "Otimização contínua de recursos", "Migração estratégica de serviços"] },
+    "performance": { "value": "3x", "label": "Performance de APIs", "badges": ["Paralelização e event-driven", "Redução de 70% no tempo de resposta", "Cache distribuído com Redis", "Queries otimizadas em escala"] },
+    "deploys": { "value": "~10/sem", "label": "Deploys em produção", "badges": ["CI/CD contínuo mesmo liderando", "Pipelines automatizados", "Feature flags e rollback", "Testes E2E no pipeline"] }
   },
   "about": {
     "label": "SOBRE",
     "headline": "Engenheiro que lidera pela entrega, não pelo cargo.",
     "text_col1": "Engenheiro da Computação com 5 anos de experiência construindo e escalando plataformas SaaS. Atuo como arquiteto de software e tech lead, mas faço questão de ser o desenvolvedor que mais entrega na equipe.\n\nMeu foco é resultado mensurável: sistemas que escalam, custos que diminuem, times que entregam com cadência. Sempre em busca de novos aprendizados e troca de conhecimento.",
     "text_col2": "Responsável pela arquitetura de 60+ microserviços, infraestrutura cloud (GCP/AWS), e todo o ciclo de entrega — do design de sistema ao deploy em produção.\n\nConstruo plataformas que atendem milhares de usuários diários com alta disponibilidade, enquanto reduzo custos e acelero a velocidade do time.",
-    "facts": {
-      "education": { "label": "Formação", "value": "Eng. da Computação, Univ. Santa Cecília" },
-      "location": { "label": "Base", "value": "São Paulo, Brasil" },
-      "languages": { "label": "Idiomas", "value": "Português · Inglês" }
+    "education": [
+      {
+        "degree": "Pós-graduação em Engenharia Aplicada em Inteligência Artificial",
+        "institution": "Ministrada por 4 Google Developers Experts (GDE)",
+        "status": "Em andamento",
+        "current": true,
+        "badges": ["Cálculo Tensorial", "Redes Neurais Profundas", "NLP & LLMs", "Computer Vision", "MLOps & Deploy de Modelos", "Engenharia de Dados para Inteligência Artificial"]
+      },
+      {
+        "type": "award",
+        "degree": "Prêmio CREA-SP — Formandos 2024: O Futuro da Engenharia",
+        "institution": "Conselho Regional de Engenharia e Agronomia de São Paulo",
+        "status": "2024",
+        "current": false,
+        "badges": ["Top alunos do estado de São Paulo", "Destaque acadêmico em Engenharia de Computação", "Formandos 2024"]
+      },
+      {
+        "degree": "Bacharelado em Engenharia da Computação",
+        "institution": "Universidade Santa Cecília",
+        "status": "2019 — 2024",
+        "current": false,
+        "badges": ["Estruturas de Dados", "Sistemas Operacionais", "Redes de Computadores", "Engenharia de Software", "Banco de Dados", "Arquitetura de Computadores"]
+      },
+      {
+        "degree": "Estudos Específicos à Parte",
+        "institution": "Cursos, certificações e aprendizado contínuo",
+        "status": "Contínuo",
+        "current": false,
+        "badges": ["Kubernetes", "Docker", "Terraform", "Google Cloud Platform (GCP)", "Amazon Web Services (AWS)", "Node.js", "React", "React Native", "TypeScript", "PostgreSQL", "Redis", "PubSub & Event-Driven", "CI/CD Pipelines", "Observabilidade & Monitoramento"]
+      }
+    ],
+    "details": {
+      "location": "São Paulo, Brasil",
+      "languages": "Português · Inglês"
     }
   },
   "experience": {
@@ -63,7 +93,7 @@
         "title": "Engenharia da Computação",
         "context": "Universidade Santa Cecília · Bacharelado",
         "current": false,
-        "badges": [],
+        "badges": ["C / C++", "Assembly", "VHDL", "Sistemas Embarcados", "Microcontroladores", "Circuitos Digitais"],
         "highlights": []
       }
     ]
@@ -107,6 +137,22 @@
         "techs": ["Angular", "SSR", "Express"],
         "metrics": ["Real-time metrics", "Team visibility"],
         "color": "amber"
+      },
+      {
+        "category": "Data Pipeline",
+        "title": "Motor de ingestão de telemetria",
+        "description": "Pipeline de processamento massivo que recebe 100M+ pontos de rastreamento diários. Arquitetura event-driven com filas distribuídas PubSub e SQS, processamento paralelo em batches com latência p99 abaixo de 20ms e zero perda de dados.",
+        "techs": ["PubSub", "SQS", "Node.js", "Kubernetes"],
+        "metrics": ["100M+ pts/dia", "p99 < 20ms"],
+        "color": "green"
+      },
+      {
+        "category": "Big Data",
+        "title": "Data lake de telemetria em escala",
+        "description": "Camada de armazenamento e consulta sobre 12+ TB e 247+ bilhões de pontos de telemetria. Queries analíticas sobre bilhões de registros retornam relatórios completos em menos de 5 segundos com particionamento inteligente e índices compostos.",
+        "techs": ["Cloud SQL", "BigQuery", "Redis", "Partitioning"],
+        "metrics": ["247B+ pontos", "Query < 5s"],
+        "color": "blue"
       }
     ]
   },
@@ -132,11 +178,9 @@
     },
     "channels_title": "Canais diretos",
     "channels": [
-      { "name": "Email", "handle": "PLACEHOLDER@email.com", "href": "mailto:PLACEHOLDER@email.com", "icon": "mail", "color": "blue" },
+      { "name": "Email", "handle": "alexsandeveloper@gmail.com", "href": "mailto:alexsandeveloper@gmail.com", "icon": "mail", "color": "blue" },
       { "name": "LinkedIn", "handle": "/in/alexsander-dev", "href": "https://linkedin.com/in/alexsander-dev", "icon": "linkedin", "color": "blue" },
-      { "name": "GitHub", "handle": "PLACEHOLDER", "href": "https://github.com/PLACEHOLDER", "icon": "github", "color": "blue" },
-      { "name": "WhatsApp", "handle": "Mensagem direta", "href": "https://wa.me/PLACEHOLDER", "icon": "phone", "color": "green" },
-      { "name": "Telegram", "handle": "@PLACEHOLDER", "href": "https://t.me/PLACEHOLDER", "icon": "send", "color": "blue" }
+      { "name": "GitHub", "handle": "Wylp", "href": "https://github.com/Wylp", "icon": "github", "color": "blue" }
     ]
   },
   "footer": {

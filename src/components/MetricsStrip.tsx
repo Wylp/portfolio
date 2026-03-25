@@ -1,50 +1,54 @@
 import { useI18n } from '#/i18n/context'
+import { useFadeIn } from '#/lib/useFadeIn'
+
+type MetricKey = 'uptime' | 'cost' | 'performance' | 'deploys'
+
+const metrics: { key: MetricKey; color: 'green' | 'blue' }[] = [
+  { key: 'uptime', color: 'green' },
+  { key: 'cost', color: 'green' },
+  { key: 'performance', color: 'green' },
+  { key: 'deploys', color: 'blue' },
+]
+
+const badgeStyles = {
+  green: 'bg-success-light text-success',
+  blue: 'bg-accent-light text-accent',
+}
+
+const prefixes = { green: '↑', blue: '→' }
 
 export function MetricsStrip() {
   const { t } = useI18n()
+  const ref = useFadeIn<HTMLElement>()
 
   return (
-    <section className="max-w-[900px] mx-auto px-6 pb-16">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-0">
-        {/* Uptime */}
-        <div className="md:border-r border-border md:pr-6">
-          <div className="text-[32px] font-bold text-text-primary leading-none">{t.metrics.uptime.value}</div>
-          <div className="text-xs text-text-muted mt-1 mb-2">{t.metrics.uptime.label}</div>
-          <span className="inline-block text-[10px] font-semibold bg-success-light text-success rounded-full px-2.5 py-0.5">
-            ↑ {t.metrics.uptime.badge}
-          </span>
-        </div>
+    <section ref={ref} className="fade-in-section px-12 md:px-20 -mt-8 pb-16">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-0 text-center">
+        {metrics.map((metric, i) => {
+          const data = t.metrics[metric.key]
+          const isLast = i === metrics.length - 1
+          const badges = data.badges as string[]
 
-        {/* Cost */}
-        <div className="md:border-r border-border md:px-6">
-          <div className="text-[32px] font-bold text-text-primary leading-none">{t.metrics.cost.value}</div>
-          <div className="text-xs text-text-muted mt-1 mb-2">{t.metrics.cost.label}</div>
-          <span className="inline-block text-[10px] font-semibold bg-success-light text-success rounded-full px-2.5 py-0.5">
-            ↑ {t.metrics.cost.badge}
-          </span>
-        </div>
-
-        {/* Performance - 2 badges stacked */}
-        <div className="md:border-r border-border md:px-6">
-          <div className="text-[32px] font-bold text-text-primary leading-none">{t.metrics.performance.value}</div>
-          <div className="text-xs text-text-muted mt-1 mb-2">{t.metrics.performance.label}</div>
-          <div className="flex flex-col gap-1">
-            {t.metrics.performance.badges.map((badge: string, i: number) => (
-              <span key={i} className="inline-block text-[10px] font-semibold bg-success-light text-success rounded-full px-2.5 py-0.5 w-fit">
-                ↑ {badge}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {/* Deploys - blue badge */}
-        <div className="md:pl-6">
-          <div className="text-[32px] font-bold text-text-primary leading-none">{t.metrics.deploys.value}</div>
-          <div className="text-xs text-text-muted mt-1 mb-2">{t.metrics.deploys.label}</div>
-          <span className="inline-block text-[10px] font-semibold bg-accent-light text-accent rounded-full px-2.5 py-0.5">
-            → {t.metrics.deploys.badge}
-          </span>
-        </div>
+          return (
+            <div
+              key={metric.key}
+              className={`${!isLast ? 'md:border-r border-border' : ''} ${i === 0 ? 'md:pr-6' : isLast ? 'md:pl-6' : 'md:px-6'}`}
+            >
+              <div className="text-[32px] font-bold text-text-primary leading-none">{data.value}</div>
+              <div className="text-xs text-text-muted mt-1 mb-3">{data.label}</div>
+              <div className="flex flex-col gap-1.5 items-center">
+                {badges.map((badge: string, j: number) => (
+                  <span
+                    key={j}
+                    className={`inline-block text-[10px] font-semibold rounded-full px-2.5 py-0.5 ${badgeStyles[metric.color]}`}
+                  >
+                    {prefixes[metric.color]} {badge}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )
+        })}
       </div>
     </section>
   )

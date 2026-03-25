@@ -1,21 +1,23 @@
 import { useState, useCallback } from 'react'
-import { Mail, Github, Phone, Send, Linkedin } from 'lucide-react'
+import { useFadeIn } from '#/lib/useFadeIn'
+import { Mail } from 'lucide-react'
+import { FaGithub, FaLinkedinIn } from 'react-icons/fa6'
 import { SectionLabel } from '#/components/SectionLabel'
 import { useI18n } from '#/i18n/context'
 import { contactSchema, contactErrors } from '#/lib/contact-schema'
+import { submitContact } from '#/lib/contact-server'
 
 const iconMap: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
   mail: Mail,
-  linkedin: Linkedin,
-  github: Github,
-  phone: Phone,
-  send: Send,
+  linkedin: FaLinkedinIn,
+  github: FaGithub,
 }
 
 type Status = 'idle' | 'submitting' | 'success' | 'error'
 
 export function Contact() {
   const { locale, t } = useI18n()
+  const ref = useFadeIn<HTMLElement>()
 
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -63,17 +65,13 @@ export function Contact() {
 
     setStatus('submitting')
     try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      })
+      const res = await submitContact({ data })
 
-      if (!res.ok) {
-        if (res.status === 429) {
+      if (!res.success) {
+        if (res.error === 'rate_limit') {
           setErrors({ form: t.contact.form.rate_limit })
         }
-        throw new Error('Failed')
+        throw new Error(res.error)
       }
 
       setStatus('success')
@@ -92,7 +90,7 @@ export function Contact() {
     'w-full bg-bg-primary border border-border rounded-md px-3 min-h-[44px] text-sm text-text-primary focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition'
 
   return (
-    <section id="contact" aria-labelledby="contact-heading" className="bg-bg-surface py-20">
+    <section ref={ref} id="contact" aria-labelledby="contact-heading" className="fade-in-section bg-bg-surface py-20">
       <div className="max-w-[900px] mx-auto px-6">
         <SectionLabel>{t.contact.label}</SectionLabel>
         <h2 id="contact-heading" className="text-[28px] font-bold tracking-[-0.5px] text-text-primary mb-3">
@@ -226,10 +224,9 @@ export function Contact() {
           <div>
             <h3 className="text-[16px] font-semibold mb-4">{t.contact.channels_title}</h3>
             <div className="space-y-2">
-              {(t.contact.channels as Array<{ name: string; handle: string; href: string; icon: string; color: string }>).map(
+              {(t.contact.channels as Array<{ name: string; handle: string; href: string; icon: string }>).map(
                 (channel) => {
                   const Icon = iconMap[channel.icon]
-                  const isGreen = channel.color === 'green'
                   return (
                     <a
                       key={channel.name}
@@ -238,17 +235,8 @@ export function Contact() {
                       rel="noopener noreferrer"
                       className="flex items-center gap-3 p-3 rounded-lg hover:bg-bg-primary transition-colors focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2"
                     >
-                      <div
-                        className={`w-10 h-10 rounded-lg flex items-center justify-center ${
-                          isGreen ? 'bg-success-light' : 'bg-accent-light'
-                        }`}
-                      >
-                        {Icon && (
-                          <Icon
-                            size={18}
-                            className={isGreen ? 'text-success' : 'text-accent'}
-                          />
-                        )}
+                      <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-accent-light">
+                        {Icon && <Icon size={18} className="text-accent" />}
                       </div>
                       <div>
                         <div className="text-sm font-medium text-text-primary">{channel.name}</div>

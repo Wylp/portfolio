@@ -8,7 +8,14 @@ const config = defineConfig({
   plugins: [
     tsconfigPaths({ projects: ['./tsconfig.json'] }),
     tailwindcss(),
-    tanstackStart(),
+    tanstackStart({
+      pages: [
+        {
+          path: '/',
+          prerender: { enabled: true },
+        },
+      ],
+    }),
     viteReact(),
   ],
 })
