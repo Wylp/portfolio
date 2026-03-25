@@ -1,8 +1,80 @@
+/* Fonts loaded via <link> in __root.tsx — do NOT @import here */
 @import 'tailwindcss';
 
-/* Placeholder — will be fully replaced in Task 2 (design system) */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 64px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
 body {
-  @apply m-0;
-  font-family: system-ui, -apple-system, sans-serif;
+  @apply m-0 antialiased;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
+}
+
+code {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+@theme inline {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-text-primary: #0F172A;
+  --color-text-secondary: #334155;
+  --color-text-muted: #64748B;
+  --color-accent: #2563EB;
+  --color-accent-light: #EFF6FF;
+  --color-success: #059669;
+  --color-success-light: #ECFDF5;
+  --color-bg-primary: #F8FAFC;
+  --color-bg-surface: #FFFFFF;
+  --color-border: #E2E8F0;
+  --color-destructive: #DC2626;
+
+  --color-footer-bg: #0F172A;
+  --color-footer-text: #F8FAFC;
+  --color-footer-muted: #64748B;
+  --color-footer-subtle: #475569;
+
+  --color-project-purple: #7C3AED;
+  --color-project-purple-light: #F3F0FF;
+  --color-project-green: #059669;
+  --color-project-green-light: #ECFDF5;
+  --color-project-amber: #D97706;
+  --color-project-amber-light: #FFFBEB;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-bg-primary text-text-primary;
+  }
+}
+
+/* Carousel animations */
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scroll-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel-track { animation: none !important; }
+}
+
+/* Carousel fade edges */
+.carousel-mask {
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
 }
