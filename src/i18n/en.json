@@ -1,0 +1,151 @@
+{
+  "nav": {
+    "about": "About",
+    "experience": "Experience",
+    "stack": "Stack",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "label": "SOFTWARE ARCHITECT & TECH LEAD",
+    "headline": "Software architect focused on results.",
+    "subtitle": "5 years leading teams, architecting distributed systems, and delivering platforms serving 10,000+ daily users with 99.999% uptime.",
+    "cta_primary": "Get in touch",
+    "cta_secondary": "View projects"
+  },
+  "metrics": {
+    "uptime": { "value": "99.99%", "label": "Production uptime", "badge": "Top 0.1% — SaaS avg: 99.5%" },
+    "cost": { "value": "-60%", "label": "Infrastructure cost", "badge": "3x results with less budget" },
+    "performance": { "value": "3x", "label": "API performance", "badges": ["Parallelization and event-driven", "70% response time reduction"] },
+    "deploys": { "value": "~10/wk", "label": "Production deploys", "badge": "Continuous CI/CD while leading" }
+  },
+  "about": {
+    "label": "ABOUT",
+    "headline": "An engineer who leads by delivery, not by title.",
+    "text_col1": "Computer Engineer with 5 years of experience building and scaling SaaS platforms. I work as a software architect and tech lead, but I make a point of being the highest-delivering developer on my team.\n\nMy focus is measurable results: systems that scale, costs that decrease, teams that deliver with cadence. Always seeking new knowledge and exchanging experiences.",
+    "text_col2": "Responsible for the architecture of 60+ microservices, cloud infrastructure (GCP/AWS), and the entire delivery cycle — from system design to production deployment.\n\nI build platforms that serve thousands of daily users with high availability, while reducing costs and accelerating team velocity.",
+    "facts": {
+      "education": { "label": "Education", "value": "B.Sc. Computer Engineering, Univ. Santa Cecília" },
+      "location": { "label": "Based in", "value": "São Paulo, Brazil" },
+      "languages": { "label": "Languages", "value": "Portuguese · English" }
+    }
+  },
+  "experience": {
+    "label": "EXPERIENCE",
+    "headline": "5 years of consistent impact.",
+    "roles": [
+      {
+        "period": "2023 — Present",
+        "title": "Software Architect & Tech Lead",
+        "context": "Technology company · Fleet management",
+        "current": true,
+        "badges": ["Architecture 60+ microservices", "Technical leadership", "Infra GCP/AWS"],
+        "highlights": ["-60% cloud costs", "3x performance", "99.99% uptime"]
+      },
+      {
+        "period": "2021 — 2023",
+        "title": "Full Stack Developer & DevOps",
+        "context": "Same company · Internal growth",
+        "current": false,
+        "badges": ["CI/CD and automation", "Kubernetes and Docker", "Monitoring and observability"],
+        "highlights": []
+      },
+      {
+        "period": "2020 — 2021",
+        "title": "Full Stack Developer",
+        "context": "Same company · Career start",
+        "current": false,
+        "badges": ["React · React Native · Node.js", "REST APIs and microservices", "Cross-platform mobile apps"],
+        "highlights": []
+      },
+      {
+        "period": "2019 — 2024",
+        "title": "Computer Engineering",
+        "context": "Santa Cecília University · Bachelor's degree",
+        "current": false,
+        "badges": [],
+        "highlights": []
+      }
+    ]
+  },
+  "stack": {
+    "label": "STACK",
+    "headline": "Tools I use to deliver."
+  },
+  "projects": {
+    "label": "PROJECTS",
+    "headline": "Systems I've built and scaled.",
+    "items": [
+      {
+        "category": "SaaS Platform",
+        "title": "Fleet management system",
+        "description": "Web platform with 10k+ daily visits for real-time tracking, vehicle management, drivers, maintenance and telemetry.",
+        "techs": ["React", "Microservices", "GCP", "Kubernetes"],
+        "metrics": ["10k+ users/day", "99.99% uptime"],
+        "color": "blue"
+      },
+      {
+        "category": "Mobile",
+        "title": "Field operations app",
+        "description": "Cross-platform app (iOS/Android) for fleet managers and drivers with real-time tracking, remote vehicle control and operational checklists.",
+        "techs": ["React Native", "Expo", "TypeScript"],
+        "metrics": ["Cross-platform", "E2E tested"],
+        "color": "purple"
+      },
+      {
+        "category": "Infrastructure",
+        "title": "Microservices architecture",
+        "description": "Ecosystem of 60+ microservices with event-driven architecture, message queues, PubSub and auto-scaling. Multi-layer disaster recovery.",
+        "techs": ["Kubernetes", "PubSub", "Docker", "Cloud SQL"],
+        "metrics": ["-60% costs", "60+ services"],
+        "color": "green"
+      },
+      {
+        "category": "Analytics",
+        "title": "Engineering metrics dashboard",
+        "description": "SSR panel with developer performance metrics: velocity, complexity, cycle time and scoring — data integrated via Google Sheets API.",
+        "techs": ["Angular", "SSR", "Express"],
+        "metrics": ["Real-time metrics", "Team visibility"],
+        "color": "amber"
+      }
+    ]
+  },
+  "contact": {
+    "label": "CONTACT",
+    "headline": "Let's talk.",
+    "subtitle": "Fill in the form or use one of the direct channels below.",
+    "form": {
+      "name": "Name",
+      "name_placeholder": "Your name",
+      "email": "Email",
+      "email_placeholder": "your@email.com",
+      "subject": "Subject",
+      "subject_options": ["Proposal", "Consulting", "Other"],
+      "message": "Message",
+      "message_placeholder": "Your message...",
+      "submit": "Send message",
+      "submitting": "Sending...",
+      "success": "Message sent successfully!",
+      "error": "Failed to send. Please try again.",
+      "rate_limit": "Too many attempts. Please wait a few minutes.",
+      "disclaimer": "Data is securely saved via Google Sheets API."
+    },
+    "channels_title": "Direct channels",
+    "channels": [
+      { "name": "Email", "handle": "PLACEHOLDER@email.com", "href": "mailto:PLACEHOLDER@email.com", "icon": "mail", "color": "blue" },
+      { "name": "LinkedIn", "handle": "/in/alexsander-dev", "href": "https://linkedin.com/in/alexsander-dev", "icon": "linkedin", "color": "blue" },
+      { "name": "GitHub", "handle": "PLACEHOLDER", "href": "https://github.com/PLACEHOLDER", "icon": "github", "color": "blue" },
+      { "name": "WhatsApp", "handle": "Direct message", "href": "https://wa.me/PLACEHOLDER", "icon": "phone", "color": "green" },
+      { "name": "Telegram", "handle": "@PLACEHOLDER", "href": "https://t.me/PLACEHOLDER", "icon": "send", "color": "blue" }
+    ]
+  },
+  "footer": {
+    "tagline": "Software Architect & Tech Lead",
+    "copyright": "© 2026 Alexsander Gusmão. All rights reserved.",
+    "built_with": "Built with TanStack Start + Tailwind CSS"
+  },
+  "meta": {
+    "title": "Alexsander Gusmão — Software Architect & Tech Lead",
+    "description": "Software architect with 5 years of experience leading teams and scaling SaaS platforms with 10k+ daily users and 99.99% uptime."
+  }
+}

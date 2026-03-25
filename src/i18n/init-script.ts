@@ -1,0 +1,1 @@
+export const I18N_INIT_SCRIPT = `(function(){try{var l=localStorage.getItem('locale');if(l==='en'){document.documentElement.lang='en'}else{document.documentElement.lang='pt-BR'}}catch(e){document.documentElement.lang='pt-BR'}})();`
