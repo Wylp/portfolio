@@ -7,10 +7,10 @@ export function About() {
   const facts = [t.about.facts.education, t.about.facts.location, t.about.facts.languages]
 
   return (
-    <section id="about" className="bg-bg-primary py-20">
+    <section id="about" aria-labelledby="about-heading" className="bg-bg-primary py-20">
       <div className="max-w-[900px] mx-auto px-6">
         <SectionLabel>{t.about.label}</SectionLabel>
-        <h2 className="text-[28px] font-bold tracking-[-0.5px] text-text-primary mb-10">
+        <h2 id="about-heading" className="text-[28px] font-bold tracking-[-0.5px] text-text-primary mb-10">
           {t.about.headline}
         </h2>
 

@@ -5,10 +5,10 @@ export function Experience() {
   const { t } = useI18n()
 
   return (
-    <section id="experience" className="bg-bg-surface py-20">
+    <section id="experience" aria-labelledby="experience-heading" className="bg-bg-surface py-20">
       <div className="max-w-[900px] mx-auto px-6">
         <SectionLabel>{t.experience.label}</SectionLabel>
-        <h2 className="text-[28px] font-bold tracking-[-0.5px] text-text-primary mb-10">
+        <h2 id="experience-heading" className="text-[28px] font-bold tracking-[-0.5px] text-text-primary mb-10">
           {t.experience.headline}
         </h2>
 

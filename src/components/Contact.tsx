@@ -92,10 +92,10 @@ export function Contact() {
     'w-full bg-bg-primary border border-border rounded-md px-3 min-h-[44px] text-sm text-text-primary focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition'
 
   return (
-    <section id="contact" className="bg-bg-surface py-20">
+    <section id="contact" aria-labelledby="contact-heading" className="bg-bg-surface py-20">
       <div className="max-w-[900px] mx-auto px-6">
         <SectionLabel>{t.contact.label}</SectionLabel>
-        <h2 className="text-[28px] font-bold tracking-[-0.5px] text-text-primary mb-3">
+        <h2 id="contact-heading" className="text-[28px] font-bold tracking-[-0.5px] text-text-primary mb-3">
           {t.contact.headline}
         </h2>
         <p className="text-[14px] text-text-secondary mb-10">{t.contact.subtitle}</p>
@@ -104,10 +104,11 @@ export function Contact() {
           {/* Form */}
           <form onSubmit={handleSubmit} noValidate>
             <div className="mb-4">
-              <label className="text-[12px] font-semibold text-text-secondary mb-1.5 block">
+              <label htmlFor="contact-name" className="text-[12px] font-semibold text-text-secondary mb-1.5 block">
                 {t.contact.form.name}
               </label>
               <input
+                id="contact-name"
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -119,10 +120,11 @@ export function Contact() {
             </div>
 
             <div className="mb-4">
-              <label className="text-[12px] font-semibold text-text-secondary mb-1.5 block">
+              <label htmlFor="contact-email" className="text-[12px] font-semibold text-text-secondary mb-1.5 block">
                 {t.contact.form.email}
               </label>
               <input
+                id="contact-email"
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -134,10 +136,11 @@ export function Contact() {
             </div>
 
             <div className="mb-4">
-              <label className="text-[12px] font-semibold text-text-secondary mb-1.5 block">
+              <label htmlFor="contact-subject" className="text-[12px] font-semibold text-text-secondary mb-1.5 block">
                 {t.contact.form.subject}
               </label>
               <select
+                id="contact-subject"
                 value={subject}
                 onChange={(e) => setSubject(e.target.value)}
                 onBlur={() => validateField('subject', subject)}
@@ -156,10 +159,11 @@ export function Contact() {
             </div>
 
             <div className="mb-4">
-              <label className="text-[12px] font-semibold text-text-secondary mb-1.5 block">
+              <label htmlFor="contact-message" className="text-[12px] font-semibold text-text-secondary mb-1.5 block">
                 {t.contact.form.message}
               </label>
               <textarea
+                id="contact-message"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 onBlur={() => validateField('message', message)}
@@ -183,7 +187,7 @@ export function Contact() {
             <button
               type="submit"
               disabled={status === 'submitting'}
-              className={`w-full bg-text-primary text-white py-3 rounded-md text-sm font-medium transition ${
+              className={`w-full bg-text-primary text-white py-3 rounded-md text-sm font-medium transition focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 ${
                 status === 'submitting' ? 'opacity-70 cursor-not-allowed' : 'hover:opacity-90'
               }`}
             >
@@ -232,7 +236,7 @@ export function Contact() {
                       href={channel.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-3 p-3 rounded-lg hover:bg-bg-primary transition-colors"
+                      className="flex items-center gap-3 p-3 rounded-lg hover:bg-bg-primary transition-colors focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2"
                     >
                       <div
                         className={`w-10 h-10 rounded-lg flex items-center justify-center ${

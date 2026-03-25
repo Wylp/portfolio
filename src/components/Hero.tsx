@@ -13,16 +13,16 @@ export function Hero() {
       <p className="text-[15px] text-text-muted leading-relaxed max-w-[560px] mb-8">
         {t.hero.subtitle}
       </p>
-      <div className="flex gap-3">
+      <div className="flex flex-wrap gap-3">
         <a
           href="#contact"
-          className="inline-flex items-center justify-center px-6 py-3 bg-text-primary text-white text-sm font-medium rounded-md hover:opacity-90 transition-opacity"
+          className="inline-flex items-center justify-center px-6 py-3 bg-text-primary text-white text-sm font-medium rounded-md hover:opacity-90 transition-opacity focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2"
         >
           {t.hero.cta_primary}
         </a>
         <a
           href="#projects"
-          className="inline-flex items-center justify-center px-6 py-3 border border-border text-text-primary text-sm font-medium rounded-md hover:bg-bg-primary transition-colors"
+          className="inline-flex items-center justify-center px-6 py-3 border border-border text-text-primary text-sm font-medium rounded-md hover:bg-bg-primary transition-colors focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2"
         >
           {t.hero.cta_secondary}
         </a>

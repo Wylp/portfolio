@@ -12,10 +12,10 @@ export function Projects() {
   const { t } = useI18n()
 
   return (
-    <section id="projects" className="bg-bg-surface py-20">
+    <section id="projects" aria-labelledby="projects-heading" className="bg-bg-surface py-20">
       <div className="max-w-[900px] mx-auto px-6">
         <SectionLabel>{t.projects.label}</SectionLabel>
-        <h2 className="text-[28px] font-bold tracking-[-0.5px] text-text-primary mb-10">
+        <h2 id="projects-heading" className="text-[28px] font-bold tracking-[-0.5px] text-text-primary mb-10">
           {t.projects.headline}
         </h2>
 

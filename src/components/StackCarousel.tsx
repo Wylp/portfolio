@@ -91,10 +91,10 @@ export function StackCarousel() {
   const { t } = useI18n()
 
   return (
-    <section id="stack" className="bg-bg-primary py-20">
+    <section id="stack" aria-labelledby="stack-heading" className="bg-bg-primary py-20">
       <div className="max-w-[900px] mx-auto px-6">
         <SectionLabel>{t.stack.label}</SectionLabel>
-        <h2 className="text-[28px] font-bold tracking-[-0.5px] text-text-primary mb-10">
+        <h2 id="stack-heading" className="text-[28px] font-bold tracking-[-0.5px] text-text-primary mb-10">
           {t.stack.headline}
         </h2>
       </div>
