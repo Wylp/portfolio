@@ -100,7 +100,17 @@
   },
   "stack": {
     "label": "STACK",
-    "headline": "Ferramentas que uso para entregar."
+    "headline": "Ferramentas que uso para entregar.",
+    "show_all": "Ver todos",
+    "collapse": "Colapsar",
+    "categories": {
+      "languages": "Linguagens",
+      "frameworks": "Frameworks",
+      "cloud": "Cloud & Infra",
+      "devops": "DevOps",
+      "databases": "Bancos de Dados",
+      "tools": "Ferramentas & Libs"
+    }
   },
   "projects": {
     "label": "PROJETOS",

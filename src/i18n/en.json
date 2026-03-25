@@ -100,7 +100,17 @@
   },
   "stack": {
     "label": "STACK",
-    "headline": "Tools I use to deliver."
+    "headline": "Tools I use to deliver.",
+    "show_all": "See all",
+    "collapse": "Collapse",
+    "categories": {
+      "languages": "Languages",
+      "frameworks": "Frameworks",
+      "cloud": "Cloud & Infra",
+      "devops": "DevOps",
+      "databases": "Databases",
+      "tools": "Tools & Libs"
+    }
   },
   "projects": {
     "label": "PROJECTS",

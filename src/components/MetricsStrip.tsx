@@ -40,7 +40,7 @@ export function MetricsStrip() {
                 {badges.map((badge: string, j: number) => (
                   <span
                     key={j}
-                    className={`inline-block text-[10px] font-semibold rounded-full px-2.5 py-0.5 ${badgeStyles[metric.color]}`}
+                    className={`inline-block text-[13px] font-medium rounded-full px-3.5 py-1 ${badgeStyles[metric.color]}`}
                   >
                     {prefixes[metric.color]} {badge}
                   </span>
