@@ -4,6 +4,7 @@ import { Hero } from '#/components/Hero'
 import { MetricsStrip } from '#/components/MetricsStrip'
 import { About } from '#/components/About'
 import { Experience } from '#/components/Experience'
+import { StackCarousel } from '#/components/StackCarousel'
 
 export const Route = createFileRoute('/')({
   component: HomePage,
@@ -18,6 +19,7 @@ function HomePage() {
         <MetricsStrip />
         <About />
         <Experience />
+        <StackCarousel />
       </main>
     </>
   )
