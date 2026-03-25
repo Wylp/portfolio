@@ -1,5 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { Navbar } from '#/components/Navbar'
+import { Hero } from '#/components/Hero'
+import { MetricsStrip } from '#/components/MetricsStrip'
 
 export const Route = createFileRoute('/')({
   component: HomePage,
@@ -10,9 +12,8 @@ function HomePage() {
     <>
       <Navbar />
       <main className="pt-16">
-        <div className="max-w-[900px] mx-auto px-6">
-          <p>Portfolio sections coming soon...</p>
-        </div>
+        <Hero />
+        <MetricsStrip />
       </main>
     </>
   )
